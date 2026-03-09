@@ -14,7 +14,7 @@ interface Article {
   author: string;
   date: string;
   thumbnail?: string;
-  icon: string;
+  icon: React.ReactNode;
   excerpt: string;
   content: {
     sections: Array<{

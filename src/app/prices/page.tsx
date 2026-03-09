@@ -14,12 +14,23 @@ import { FaSearch, FaExclamationTriangle } from "react-icons/fa";
 
 const categories = ["All", "Top Gainers", "Top Losers", "High Volume", "Most Volatile"];
 
+interface Crypto {
+  id?: string;
+  symbol?: string;
+  name?: string;
+  market_cap?: number;
+  total_volume?: number;
+  price_change_percentage_24h?: number;
+  [key: string]: any;
+}
+
 export default function PricesPage() {
-  const [cryptoData, setCryptoData] = useState([]);
+
+  const [cryptoData, setCryptoData] = useState<Crypto[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -39,8 +50,8 @@ export default function PricesPage() {
     fetchPrices();
   }, []);
 
-  const formatMarketCap = (value) => {
-    if (!value && value !== 0) return "N/A";
+  const formatMarketCap = (value: number | null | undefined): string => {
+    if (value == null) return "N/A";
     if (value >= 1e12) return (value / 1e12).toFixed(2) + "T";
     if (value >= 1e9) return (value / 1e9).toFixed(2) + "B";
     if (value >= 1e6) return (value / 1e6).toFixed(2) + "M";
@@ -48,10 +59,10 @@ export default function PricesPage() {
   };
 
   const computeStats = () => {
-    const totalMarketCap = cryptoData.reduce((acc, c) => acc + (c.market_cap || 0), 0);
-    const totalVolume = cryptoData.reduce((acc, c) => acc + (c.total_volume || 0), 0);
+    const totalMarketCap = cryptoData.reduce<number>((acc, c) => acc + (c.market_cap || 0), 0);
+    const totalVolume = cryptoData.reduce<number>((acc, c) => acc + (c.total_volume || 0), 0);
     const btc = cryptoData.find(c => c.symbol?.toLowerCase() === "btc");
-    const btcDominance = btc ? (btc.market_cap / totalMarketCap) * 100 : 0;
+    const btcDominance = btc ? (btc.market_cap || 0) / totalMarketCap * 100 : 0;
     return {
       totalMarketCap,
       totalVolume,
@@ -62,10 +73,10 @@ export default function PricesPage() {
   const { totalMarketCap, totalVolume, btcDominance } = computeStats();
 
   const filteredCrypto = cryptoData.filter((crypto) => {
-    const matchesSearch =
-      crypto.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      crypto.symbol.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesSearch;
+    const term = searchTerm.toLowerCase();
+    const name = crypto.name?.toLowerCase() ?? "";
+    const symbol = crypto.symbol?.toLowerCase() ?? "";
+    return name.includes(term) || symbol.includes(term);
   });
 
   const getFilteredByCategory = () => {
@@ -187,7 +198,7 @@ export default function PricesPage() {
                       <h3 className={styles.cardTitle}>
                         {crypto.name}{" "}
                         <span className={styles.symbol}>
-                          {crypto.symbol.toUpperCase()}
+                          {crypto.symbol ? crypto.symbol.toUpperCase() : ""}
                         </span>
                       </h3>
                       <p className={styles.cardPrice}>
@@ -195,15 +206,15 @@ export default function PricesPage() {
                       </p>
                       <Badge
                         variant={
-                          crypto.price_change_percentage_24h >= 0
+                          (crypto.price_change_percentage_24h ?? 0) >= 0
                             ? "success"
                             : "error"
                         }
                       >
-                        {crypto.price_change_percentage_24h >= 0 ? "↑" : "↓"}{" "}
+                        {(crypto.price_change_percentage_24h ?? 0) >= 0 ? "↑" : "↓"}{" "}
                         {Math.abs(
-                          crypto.price_change_percentage_24h?.toFixed(2) || 0
-                        )}
+                          crypto.price_change_percentage_24h ?? 0
+                        ).toFixed(2)}
                         %
                       </Badge>
                       <p className={styles.cardMeta}>

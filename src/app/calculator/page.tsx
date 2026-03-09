@@ -15,7 +15,14 @@ import styles from "./calculator.module.scss";
 
 type CalculatorMode = "profit" | "investment";
 
-const modeInfo = {
+interface ModeInfo {
+  title: string;
+  description?: string; // optional for modes that don't need it
+  steps: string[];
+  tips: string[];
+}
+
+const modeInfo: Record<CalculatorMode, ModeInfo> = {
   profit: {
     title: "How the Crypto Profit Calculator Works",
     description: "The Crypto Profit Calculator is a simple tool designed to help people figure out how much money they might make (or lose) when trading cryptocurrencies. Think of it like a basic math helper for buying and selling digital coins like Bitcoin or Ethereum. People buy cryptocurrencies at one price and hope to sell them later at a higher price to make a profit. But prices change a lot, and there are fees involved (like transaction costs). This calculator lets you plug in some numbers to see what your profit or loss might be before you actually trade. It's just a calculator. It doesn't predict prices. Crypto is volatile, so use it as a guide, not a guarantee.",
