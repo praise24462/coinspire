@@ -12,7 +12,7 @@ export default function CTA() {
         <h2>Ready to trade smarter?</h2>
         <p>Join traders across Africa using COINSPIRE to find better rates and opportunities.</p>
         <div className={styles.ctaActions}>
-          <Link href="/auth/signup"><Button variant="primary">Sign up free</Button></Link>
+          {/* Sign up button removed per request */}
           <Link href="/calculator"><Button variant="ghost">Try tools</Button></Link>
         </div>
       </div>
