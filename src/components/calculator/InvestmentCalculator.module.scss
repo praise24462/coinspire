@@ -1,0 +1,51 @@
+@use '../../styles/variables' as *;
+
+.calculator {
+  background: $bg-surface-elevated;
+  padding: $space-2xl;
+  border-radius: $radius-lg;
+  max-width: 500px;
+  margin: 0 auto;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.title {
+  margin-bottom: $space-xl;
+  text-align: center;
+  color: $text-primary;
+  font-size: $font-size-2xl;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  margin-bottom: $space-xl;
+}
+
+.actions {
+  display: flex;
+  gap: $space-md;
+  justify-content: center;
+  margin-bottom: $space-xl;
+}
+
+.result {
+  text-align: center;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  animation: fadeIn $transition-base;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

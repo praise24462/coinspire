@@ -1,0 +1,627 @@
+// ===========================================
+// COLOR VARIABLES
+// ===========================================
+$primary: #6366F1;
+$secondary: #10B981;
+$bg-dark: #0A0A0F;
+$bg-surface: #121218;
+$bg-surface-elevated: #1A1A24;
+$border-default: rgba(255, 255, 255, 0.1);
+$text-primary: #FFFFFF;
+$text-secondary: #9CA3AF;
+$text-muted: #6B7280;
+
+// ================== MAIN LAYOUT ==================
+.articlePage {
+  min-height: 100vh;
+  background: $bg-dark;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// ================== BREADCRUMB ==================
+.breadcrumb {
+  background: $bg-surface;
+  border-bottom: 1px solid $border-default;
+  padding: 16px 0;
+  margin-bottom: 40px;
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+
+  .container {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    color: $text-secondary;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+
+    .separator {
+      color: $text-muted;
+    }
+
+    span {
+      color: $text-primary;
+    }
+  }
+}
+
+// ================== CONTENT LAYOUT ==================
+.content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 60px;
+}
+
+// ================== MAIN ARTICLE ==================
+.mainArticle {
+  max-width: 800px;
+}
+
+// ================== HEADER ==================
+.header {
+  margin-bottom: 40px;
+}
+
+.iconBox {
+  font-size: 48px;
+  margin-bottom: 24px;
+  display: inline-block;
+  padding: 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $text-primary;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.excerpt {
+  font-size: 18px;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin-bottom: 24px;
+}
+
+// ================== META INFO ==================
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-top: 1px solid $border-default;
+  border-bottom: 1px solid $border-default;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.metaLeft,
+.metaRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.authorDate {
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.category {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.readTime {
+  font-size: 13px;
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+// ================== ACTIONS ==================
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.share {
+  display: flex;
+  gap: 8px;
+}
+
+.shareBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: $bg-surface;
+  border: 1px solid $border-default;
+  color: $text-primary;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $bg-surface-elevated;
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+// ================== ARTICLE BODY ==================
+.articleBody {
+  margin-bottom: 40px;
+}
+
+.section {
+  margin-bottom: 48px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionHeading {
+  font-size: 28px;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 1.8;
+  color: $text-secondary;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ================== TAGS ==================
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  border-top: 1px solid $border-default;
+  margin-bottom: 40px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 6px;
+  font-size: 13px;
+  color: $primary;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: $primary;
+  }
+}
+
+// ================== CTA BOX ==================
+.ctaBox {
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 40px;
+
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $text-secondary;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+// ================== SIDEBAR ==================
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.toc,
+.relatedBox,
+.newsletterBox {
+  padding: 24px;
+  background: $bg-surface;
+  border: 1px solid $border-default;
+  border-radius: 12px;
+  position: sticky;
+  top: 140px;
+}
+
+.tocTitle,
+.relatedTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $border-default;
+}
+
+.tocList,
+.relatedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    button,
+    a {
+      display: block;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      color: $text-secondary;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:hover {
+        background: $bg-surface-elevated;
+        color: $primary;
+      }
+    }
+
+    &.active button {
+      background: rgba(99, 102, 241, 0.1);
+      color: $primary;
+      font-weight: 600;
+    }
+  }
+}
+
+.relatedLink {
+  color: $text-secondary;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  .arrow {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover {
+    color: $primary;
+
+    .arrow {
+      opacity: 1;
+    }
+  }
+}
+
+// ================== NEWSLETTER BOX ==================
+.newsletterBox {
+  text-align: center;
+  position: sticky;
+  top: 140px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 13px;
+    color: $text-secondary;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+}
+
+.emailInput {
+  width: 100%;
+  padding: 10px 12px;
+  background: $bg-surface-elevated;
+  border: 1px solid $border-default;
+  border-radius: 8px;
+  color: $text-primary;
+  font-size: 13px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    background: rgba(99, 102, 241, 0.05);
+  }
+}
+
+// ================== NOT FOUND ==================
+.notFound {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+
+  .container {
+    max-width: 500px;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: $text-primary;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      color: $text-secondary;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    a {
+      display: inline-block;
+    }
+  }
+}
+
+// ================== RESPONSIVE ==================
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* move sidebar below content on tablets/mobile */
+  .sidebar {
+    order: 1;
+  }
+
+  .toc,
+  .relatedBox,
+  .newsletterBox {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .articlePage {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 24px;
+    padding: 12px 0;
+    position: static;
+
+    .container {
+      font-size: 12px;
+    }
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .excerpt {
+    font-size: 16px;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    border: none;
+    padding: 16px 0;
+    gap: 12px;
+  }
+
+  .metaLeft,
+  .metaRight {
+    width: 100%;
+  }
+
+  .sectionHeading {
+    font-size: 22px;
+  }
+
+  .paragraph {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .iconBox {
+    font-size: 36px;
+    padding: 12px;
+  }
+
+  .ctaBox {
+    padding: 24px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .content {
+    gap: 24px;
+  }
+
+  .sidebar {
+    gap: 16px;
+  }
+
+  .toc,
+  .relatedBox,
+  .newsletterBox {
+    padding: 16px;
+  }
+
+  .tocTitle,
+  .relatedTitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .tocList li button,
+  .relatedList li a {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .emailInput {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .tags {
+    padding: 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .excerpt {
+    font-size: 14px;
+  }
+
+  .sectionHeading {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .share {
+    width: 100%;
+  }
+
+  .shareBtn {
+    flex: 1;
+  }
+
+  .tags {
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

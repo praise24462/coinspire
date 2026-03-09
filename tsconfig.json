@@ -18,6 +18,7 @@
         "name": "next"
       }
     ],
+    "baseUrl": "src",
     "paths": {
       "@/*": ["./*"]
     }
@@ -29,6 +30,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/app/components/ui/Card/Card.jsx", "src/app/components/ui/Button/Button.jsx", "src/app/components/ui/Loader/Loader.jsx", "src/app/components/ui/Input/Input.jsx"  ],
   "exclude": ["node_modules"]
 }

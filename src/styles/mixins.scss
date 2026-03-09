@@ -1,0 +1,354 @@
+// ===========================================
+// COINKIT DESIGN SYSTEM - MIXINS
+// ===========================================
+@use 'variables' as *;
+
+// ===========================================
+// Flexbox
+// ===========================================
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// ===========================================
+// Typography
+// ===========================================
+@mixin heading-1 {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: -0.02em;
+}
+
+@mixin heading-2 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: -0.01em;
+}
+
+@mixin heading-3 {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+}
+
+@mixin heading-4 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+}
+
+@mixin body-large {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+}
+
+@mixin body-base {
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+@mixin body-small {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+@mixin caption {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// ===========================================
+// Cards & Surfaces
+// ===========================================
+@mixin card {
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-lg;
+  transition: all $transition-base;
+}
+
+@mixin card-elevated {
+  @include card;
+  background: $bg-surface-elevated;
+  box-shadow: $shadow-md;
+}
+
+@mixin card-interactive {
+  @include card;
+  cursor: pointer;
+  
+  &:hover {
+    background: $bg-surface-elevated;
+    border-color: $border-default;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// ===========================================
+// Buttons
+// ===========================================
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space-sm $space-md;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: 1;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $gradient-primary;
+  color: $text-primary;
+  box-shadow: $shadow-md, $shadow-glow;
+  
+  &:hover:not(:disabled) {
+    box-shadow: $shadow-lg, $shadow-glow;
+    transform: translateY(-1px);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: $bg-surface-elevated;
+  color: $text-primary;
+  border: 1px solid $border-default;
+  
+  &:hover:not(:disabled) {
+    background: $bg-surface-hover;
+    border-color: $border-strong;
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background: transparent;
+  color: $text-secondary;
+  
+  &:hover:not(:disabled) {
+    background: $bg-surface-elevated;
+    color: $text-primary;
+  }
+}
+
+@mixin button-danger {
+  @include button-base;
+  background: $error;
+  color: $text-primary;
+  
+  &:hover:not(:disabled) {
+    background: darken($error, 10%);
+  }
+}
+
+// ===========================================
+// Inputs
+// ===========================================
+@mixin input-base {
+  width: 100%;
+  padding: $space-sm $space-md;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background: $bg-surface;
+  border: 1px solid $border-default;
+  border-radius: $radius-md;
+  outline: none;
+  transition: all $transition-base;
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+  
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.15);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ===========================================
+// Responsive
+// ===========================================
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-md) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// ===========================================
+// Animations
+// ===========================================
+@mixin fade-in {
+  animation: fadeIn $transition-slow forwards;
+}
+
+@mixin slide-up {
+  animation: slideUp $transition-slow forwards;
+}
+
+@mixin scale-in {
+  animation: scaleIn $transition-base forwards;
+}
+
+// Keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ===========================================
+// Scrollbar
+// ===========================================
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $border-default;
+    border-radius: $radius-full;
+    
+    &:hover {
+      background: $border-strong;
+    }
+  }
+}
+
+// ===========================================
+// Truncate
+// ===========================================
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

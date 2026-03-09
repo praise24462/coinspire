@@ -1,0 +1,351 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0A0A0F;
+}
+
+.main {
+  flex: 1;
+  padding: 120px 24px 64px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.headerContent {
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #9CA3AF;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.searchWrapper {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.categoryBtn {
+  padding: 10px 20px;
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  color: #9CA3AF;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryBtn:hover {
+  background: #1A1A24;
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #FFFFFF;
+}
+
+.categoryBtn.active {
+  background: #6366F1;
+  border-color: #6366F1;
+  color: #FFFFFF;
+}
+
+.marketStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.statChange {
+  font-size: 14px;
+  font-weight: 500;
+  color: #10B981;
+}
+
+.tableWrapper {
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #1A1A24;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.rank {
+  font-weight: 600;
+  color: #6B7280;
+}
+
+.nameCell {
+  padding-left: 16px !important;
+}
+
+.coinInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coinIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.coinDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coinName {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.coinSymbol {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.price {
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.marketCap,
+.volume {
+  font-family: 'JetBrains Mono', monospace;
+  color: #9CA3AF;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.emptyState p {
+  color: #6B7280;
+  font-size: 16px;
+}
+
+/* grid / card based listing */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.card {
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cardImage {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+}
+
+.cardInfo {
+  text-align: center;
+  width: 100%;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.symbol {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.cardPrice {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 8px 0;
+}
+
+.cardMeta {
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+@media (max-width: 1024px) {
+  .marketStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .table th:nth-child(5),
+  .table td:nth-child(5),
+  .table th:nth-child(6),
+  .table td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 100px 16px 48px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    display: none;
+  }
+}
+
+/* restructure grid cards on smaller phones */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .cardImage {
+    width: 40px;
+    height: 40px;
+    margin: 0 12px 0 0;
+  }
+
+  .cardInfo {
+    text-align: left;
+    width: auto;
+    flex: 1;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardPrice {
+    font-size: 14px;
+    margin: 4px 0;
+  }
+
+  .cardMeta {
+    display: none;
+  }
+}
+

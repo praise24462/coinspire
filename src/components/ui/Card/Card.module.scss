@@ -1,0 +1,101 @@
+@use '../../../styles/variables' as *;
+
+.card {
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-lg;
+  transition: all $transition-base;
+}
+
+// Variants
+.default {
+  background: $bg-surface;
+}
+
+.elevated {
+  background: $bg-surface-elevated;
+  box-shadow: $shadow-md;
+}
+
+.interactive {
+  cursor: pointer;
+  
+  &:hover {
+    background: $bg-surface-elevated;
+    border-color: $border-default;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.bordered {
+  background: $bg-surface;
+  border: 1px solid $border-default;
+}
+
+// Padding
+.padding-none {
+  padding: 0;
+}
+
+.padding-sm {
+  padding: $space-md;
+}
+
+.padding-md {
+  padding: $space-lg;
+}
+
+.padding-lg {
+  padding: $space-xl;
+}
+
+// Clickable
+.clickable {
+  cursor: pointer;
+}
+
+// Card Parts
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: $space-md;
+  border-bottom: 1px solid $border-subtle;
+  margin-bottom: $space-md;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.headerAction {
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0;
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin: $space-xs 0 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  padding-top: $space-md;
+  border-top: 1px solid $border-subtle;
+  margin-top: $space-md;
+}

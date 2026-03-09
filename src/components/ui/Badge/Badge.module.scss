@@ -1,0 +1,53 @@
+@use '../../../styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-full;
+  white-space: nowrap;
+}
+
+// Sizes
+.sm {
+  padding: 2px 8px;
+  font-size: $font-size-xs;
+}
+
+.md {
+  padding: 4px 12px;
+  font-size: $font-size-sm;
+}
+
+// Variants
+.default {
+  background: rgba($text-secondary, 0.15);
+  color: $text-secondary;
+}
+
+.primary {
+  background: rgba($primary, 0.15);
+  color: $primary-light;
+}
+
+.success {
+  background: rgba($success, 0.15);
+  color: $secondary-light;
+}
+
+.warning {
+  background: rgba($warning, 0.15);
+  color: $warning;
+}
+
+.error {
+  background: rgba($error, 0.15);
+  color: $error;
+}
+
+.info {
+  background: rgba($info, 0.15);
+  color: $info;
+}

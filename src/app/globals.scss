@@ -1,0 +1,178 @@
+@use '../styles/variables' as *;
+
+// ===========================================
+// GLOBAL STYLES
+// ===========================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background: $bg-dark;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+// Dark theme default
+body {
+  // @include custom-scrollbar;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Images
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// Form elements
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// Lists
+ul,
+ol {
+  list-style: none;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+}
+
+// ===========================================
+// UTILITY CLASSES
+// ===========================================
+
+// Container
+.container {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Focus visible
+:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// Selection
+::selection {
+  background: rgba($primary, 0.3);
+  color: $text-primary;
+}
+
+// ===========================================
+// ANIMATIONS
+// ===========================================
+
+// Fade in animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide up animation
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Pulse animation
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Spin animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ===========================================
+// DARK THEME BASE
+// ===========================================
+
+// Make sure dark theme is applied
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #{$bg-dark};
+    --foreground: #{$text-primary};
+  }
+}
+
+// Force dark theme
+[data-theme="dark"] {
+  --background: #{$bg-dark};
+  --foreground: #{$text-primary};
+}

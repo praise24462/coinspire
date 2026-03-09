@@ -1,0 +1,154 @@
+@use '../../../styles/variables' as *;
+
+// Base Button
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: $space-sm;
+  font-family: $font-family;
+  font-weight: $font-weight-semibold;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// Sizes
+.sm {
+  padding: $space-xs $space-sm;
+  font-size: $font-size-xs;
+  height: 32px;
+}
+
+.md {
+  padding: $space-sm $space-md;
+  font-size: $font-size-sm;
+  height: 40px;
+}
+
+.lg {
+  padding: $space-md $space-lg;
+  font-size: $font-size-base;
+  height: 48px;
+}
+
+// Variants
+.primary {
+  background: $gradient-primary;
+  color: $text-primary;
+  box-shadow: $shadow-md, 0 0 20px rgba($primary, 0.25);
+  
+  &:hover:not(:disabled) {
+    box-shadow: $shadow-lg, 0 0 30px rgba($primary, 0.35);
+    transform: translateY(-1px);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+.secondary {
+  background: $bg-surface-elevated;
+  color: $text-primary;
+  border: 1px solid $border-default;
+  
+  &:hover:not(:disabled) {
+    background: $bg-surface-hover;
+    border-color: $border-strong;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $text-secondary;
+  
+  &:hover:not(:disabled) {
+    background: rgba($text-primary, 0.05);
+    color: $text-primary;
+  }
+}
+
+.danger {
+  background: $error;
+  color: $text-primary;
+  box-shadow: $shadow-md;
+  
+  &:hover:not(:disabled) {
+    background: darken($error, 8%);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.success {
+  background: $gradient-success;
+  color: $text-primary;
+  box-shadow: $shadow-md, $shadow-glow-success;
+  
+  &:hover:not(:disabled) {
+    box-shadow: $shadow-lg, 0 0 30px rgba($secondary, 0.4);
+    transform: translateY(-1px);
+  }
+}
+
+// Full Width
+.fullWidth {
+  width: 100%;
+}
+
+// Loading State
+.loading {
+  pointer-events: none;
+  
+  .label {
+    opacity: 0;
+  }
+}
+
+.spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
